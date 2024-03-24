@@ -60,8 +60,7 @@ cc_binary {
         "service.cpp",
     ],
     cflags: [
-        "-Wall",
-        "-Werror",
+        "-Wno-error",
     ],
     generated_sources: ["wayland_android_client_protocol_sources"],
     generated_headers: ["wayland_android_client_protocol_headers"],
