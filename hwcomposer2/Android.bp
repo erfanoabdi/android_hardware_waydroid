@@ -21,9 +21,20 @@ cc_binary {
         "libfmq",
         "libsync",
         "libdrm",
+        "libEGL",
+        "libGLESv2",
+        "vendor.waydroid.display@1.0",
+        "vendor.waydroid.display@1.1",
+        "vendor.waydroid.task@1.0",
+        "vendor.waydroid.window@1.0",
+        "vendor.waydroid.window@1.1",
+        "vendor.waydroid.window@1.2",
     ],
     static_libs: [
-        "libgbm_gralloc",
+        "libwayland_client_static",
+        "libffi",
+        "libwayland_extension_client_protocols",
+        "libxkbcommon",
     ],
     header_libs: [
         "android.hardware.graphics.mapper@2.0-passthrough_headers",
@@ -32,6 +43,12 @@ cc_binary {
         "libhardware_headers",
         "libhardware_legacy_headers",
         "libsystem_headers",
+        "minigbm_headers",
+    ],
+    include_dirs: [
+        "system/core",
+        "system/core/libsync",
+        "system/core/libsync/include"
     ],
     srcs: [
         "hwc_context.cpp",
@@ -46,4 +63,6 @@ cc_binary {
         "-Wall",
         "-Werror",
     ],
+    generated_sources: ["wayland_android_client_protocol_sources"],
+    generated_headers: ["wayland_android_client_protocol_headers"],
 }

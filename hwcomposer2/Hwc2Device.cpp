@@ -34,13 +34,7 @@ Hwc2Device::Hwc2Device()
     ALOGV("Hwc2Device()");
     mHwcContext = std::make_unique<hwc_context>();
 
-    mFbInfo.name = "hwc-v3d";
-    mFbInfo.width = mHwcContext->width;
-    mFbInfo.height = mHwcContext->height;
-    mFbInfo.format = mHwcContext->format;
-    mFbInfo.vsync_period_ns = int(1e9 / mHwcContext->fps);
-    mFbInfo.xdpi_scaled = int(mHwcContext->xdpi * 1000.0f);
-    mFbInfo.ydpi_scaled = int(mHwcContext->ydpi * 1000.0f);
+    mFbInfo.name = "hwc-waydroid";
 
     mVsyncThread.start(0, mFbInfo.vsync_period_ns);
 }
